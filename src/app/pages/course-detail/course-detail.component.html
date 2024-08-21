@@ -1,0 +1,117 @@
+<div class="course-detail">
+    <div *ngIf="course && enrolementForm" class="course-detail__form">
+        <h2 class="form__title">Rellena el formulario de inscripción</h2>
+        <form class="form" [formGroup]="enrolementForm" (submit)="enroleStudent()">
+            <fieldset class="form__fieldset form__fieldset--full">
+                <label>Curso</label>
+                <input
+                    class="form__input"
+                    type="text"
+                    formControlName="course"
+                    readonly
+                />
+            </fieldset>
+            <fieldset class="form__fieldset">
+                <label>Nombre</label>
+                <input
+                    class="form__input"
+                    type="text"
+                    [ngClass]="{ 'form__input--error': !enrolementForm.get('name')?.valid && enrolementForm.get('name')?.dirty }"
+                    formControlName="name"
+                    placeholder="Escribe tu nombre"
+                />
+                <span
+                    *ngIf="enrolementForm.get('name')?.invalid && enrolementForm.get('name')?.dirty"
+                    class="form__error"
+                >El nombre es obligatorio</span>
+            </fieldset>
+            <fieldset class="form__fieldset">
+                <label>Apellidos</label>
+                <input
+                    class="form__input"
+                    type="text"
+                    [ngClass]="{ 'form__input--error': !enrolementForm.get('surName')?.valid && enrolementForm.get('surName')?.dirty }"
+                    formControlName="surName"
+                    placeholder="Tus apellidos completos"
+                />
+                <span
+                    *ngIf="enrolementForm.get('surName')?.invalid && enrolementForm.get('surName')?.dirty"
+                    class="form__error"
+                >El apellido es obligatorio</span>
+            </fieldset>
+            <fieldset class="form__fieldset">
+                <label>Email</label>
+                <input
+                    class="form__input"
+                    type="text"
+                    [ngClass]="{ 'form__input--error': !enrolementForm.get('email')?.valid && enrolementForm.get('email')?.dirty }"
+                    formControlName="email"
+                    placeholder="Escribe tu email"
+                />
+                <span
+                    *ngIf="enrolementForm.get('email')?.invalid && enrolementForm.get('email')?.dirty && enrolementForm.get('email')?.errors?.['required']"
+                    class="form__error"
+                >El email es obligatorio</span>
+                <span
+                    *ngIf="enrolementForm.get('email')?.invalid && enrolementForm.get('email')?.dirty && enrolementForm.get('email')?.errors?.['email']"
+                    class="form__error"
+                >El email no tiene un formato válido</span>
+            </fieldset>
+            <fieldset class="form__fieldset">
+                <label>Teléfono</label>
+                <input
+                    class="form__input"
+                    type="number"
+                    [ngClass]="{ 'form__input--error': !enrolementForm.get('phone')?.valid && enrolementForm.get('phone')?.dirty }"
+                    formControlName="phone"
+                />
+                <span
+                    *ngIf="enrolementForm.get('phone')?.invalid && enrolementForm.get('phone')?.dirty"
+                    class="form__error"
+                >El teléfono no tiene un formato válido</span>
+            </fieldset>
+            <fieldset class="form__fieldset form__fieldset--full">
+                <label>Dirección</label>
+                <input
+                    class="form__input"
+                    type="text"
+                    [ngClass]="{ 'form__input--error': !enrolementForm.get('address')?.valid && enrolementForm.get('address')?.dirty }"
+                    formControlName="address"
+                    placeholder="Escribe tu dirección"
+                />
+                <span
+                    *ngIf="enrolementForm.get('address')?.invalid && enrolementForm.get('address')?.dirty && enrolementForm.get('address')?.errors?.['required']"
+                    class="form__error"
+                >La dirección es obligatoria</span>
+                <span
+                    *ngIf="enrolementForm.get('address')?.invalid && enrolementForm.get('address')?.dirty && enrolementForm.get('address')?.errors?.['invalidNumberInAddress']"
+                    class="form__error"
+                >La dirección debe contener un número</span>
+            </fieldset>
+            <fieldset class="form__fieldset form__fieldset--checkbox">
+                <input
+                    type="checkbox"
+                    [ngClass]="{ 'form__input--error': !enrolementForm.get('terms')?.valid && enrolementForm.get('terms')?.dirty }"
+                    formControlName="terms"
+                />
+                <label>He leído y acepto los términos y condiciones y la política de privacidad</label>
+            </fieldset>
+            <span
+                *ngIf="enrolementForm.get('terms')?.invalid && enrolementForm.get('terms')?.dirty"
+                class="form__error"
+            >Debes aceptar los términos y condiciones</span>
+            <button
+                class="form__button"
+                type="submit"
+                [disabled]="enrolementForm.invalid"
+            >Enviar</button>
+        </form>
+    </div>
+    <div *ngIf="course" class="course-detail__info">
+        <h3 class="course-info__summary">Resumen de inscripción</h3>
+        <p class="course-info__title">{{ course.title }}</p>
+        <p class="course-info__description">{{ course.description }}</p>
+        <p class="course-info__price">Total: {{ course.price }}€</p>
+    </div>
+</div>
+

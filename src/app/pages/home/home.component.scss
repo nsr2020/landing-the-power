@@ -1,0 +1,33 @@
+.home {
+    color: #1E3740;
+    font-family: "Poppins", sans-serif;
+    &__video {
+    width: 100%;
+    height: 450px;
+    }
+    &__info {
+    padding: 40px;
+    }
+    &__title {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 64px;
+    max-width: 800px;
+    }
+    &__subtitle {
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: 300;
+    }
+    &__courses-title {
+        font-size: 22px;
+        margin-bottom: 32px;
+        margin-top: 48px;
+        }
+        &__courses {
+        gap: 32px;
+        display: flex;
+        flex-flow: row wrap;
+        }
+        
+    }

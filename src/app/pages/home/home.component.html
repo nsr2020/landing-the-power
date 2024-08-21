@@ -1,0 +1,22 @@
+<div class="home">
+    <iframe class="home__video" 
+    src="https://www.youtube.com/embed/A_QxGm_79sE?si=XLIL6uRRAvcDqbwi" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+</iframe>
+<div>
+    <h3 class="home__subtitle">Más que una universidad</h3>
+    <h2 class="home__title">La escuela que lidera la revolució en la educación</h2>
+    <p class="home__courses-title">Cursos más populares</p>
+    <div class="home__courses">
+        <app-course
+        *ngFor="let course of topCourses$ | async"
+        [course]="course"
+        ></app-course>
+    </div>
+</div>
+</div>
+

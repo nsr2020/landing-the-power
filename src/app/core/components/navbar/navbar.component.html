@@ -1,0 +1,12 @@
+<div class="navbar">
+    <a [routerLink]="['/home']">
+      <img class="navbar__logo" src="/assets/power.png" alt="powerLogo">
+    </a>  
+    <a class="navbar__link" [routerLink]="['/courses']" [routerLinkActive]="'navbar__link--active'">
+      Cursos
+    </a>
+    <button class="navbar__button"
+    (click)="goToCourses()"
+    >Solicitar Info</button>
+  </div>
+  

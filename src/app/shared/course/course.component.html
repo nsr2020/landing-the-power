@@ -1,0 +1,27 @@
+<div class="course"
+*ngIf="course"
+>
+<div class="course__image-container">
+<img class="course__image" 
+[ngSrc]="course.image" 
+alt="imagen del curso"
+fill>
+</div>
+<div class="course__content">
+<p class="course__title">{{course.title}}</p>
+<p class="course__description">{{course.description}}</p>
+</div>
+<div class="course__info">
+    <p class="course__online">{{course.isOnline ? '100% online' : 'Presencial'}}</p>
+    <p class="course__hours"> {{course.duration}} horas</p>
+
+</div>
+<div class="course__info">
+    <p class="course__price">{{course.price}}€</p>
+    <p class="course__vacancies"> {{course.numVacancies}} plazas</p>
+
+</div>
+<button class="course__button"
+(click)="onSeeMoreInfo()"
+>Apúntarme ya!!</button>
+</div>
